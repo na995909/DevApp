@@ -1,0 +1,43 @@
+{
+  "name": "dev-app",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "classnames": "^2.2.6",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.1",
+    "mongojs": "^2.6.0",
+    "mongoose": "^5.1.6",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-intl": "^2.4.0",
+    "react-responsive-carousel": "^3.1.41",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "reactstrap": "^6.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "postinstall": "cd client && yarn install && yarn run build",
+    "client": "cd client && npm run start",
+    "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    "server": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
